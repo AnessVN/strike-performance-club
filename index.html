@@ -93,7 +93,7 @@ h1,h2,h3,.display{
 .nav.is-scrolled{background:rgba(0,0,0,.85);backdrop-filter:blur(12px);border-bottom-color:var(--line);}
 .nav-logo{font-family:var(--font-display);font-size:1.25rem;letter-spacing:.02em;display:flex;align-items:center;gap:.5rem;}
 .nav-logo .bolt{width:12px;height:12px;background:var(--volt);clip-path:polygon(0 0,100% 0,35% 100%,35% 45%,0 45%);}
-.nav-links{display:flex;gap:2.2rem;font-size:.8rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;}
+.nav-links{display:flex;gap:clamp(1.2rem,2.2vw,2.2rem);font-size:.75rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;}
 .nav-links a{position:relative;padding:.2rem 0;}
 .nav-links a::after{
   content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;
@@ -112,7 +112,7 @@ h1,h2,h3,.display{
 .btn--ghost{background:transparent;color:var(--white);border-color:var(--white);}
 .btn--ghost:hover{border-color:var(--volt);color:var(--volt);background:transparent;}
 .btn--big{font-size:1rem;padding:1.3rem 2.6rem;}
-@media (max-width:900px){.nav-links{display:none;}}
+@media (max-width:1020px){.nav-links{display:none;}}
 
 /* ============ HERO ============ */
 .hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;}
@@ -196,22 +196,59 @@ h1,h2,h3,.display{
 .manifesto-foot{margin-top:var(--space-4);display:flex;gap:var(--space-3);flex-wrap:wrap;color:var(--ink-70);}
 .manifesto-foot p{max-width:38ch;}
 
-/* ============ STATS ============ */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
-.stat{
-  padding:var(--space-4) var(--space-3);
-  border-right:1px solid var(--line);
-  display:flex;flex-direction:column;gap:.6rem;
+/* ============ TRAJECTEN ============ */
+.trajecten-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;}
+@media (max-width:800px){.trajecten-grid{grid-template-columns:1fr;}}
+.traject{
+  position:relative;border:1px solid var(--line);
+  padding:clamp(1.8rem,3.5vw,3rem);
+  display:flex;flex-direction:column;gap:1rem;
+  transition:border-color var(--dur-fast),transform var(--dur-base) var(--ease),background var(--dur-fast);
+  overflow:hidden;
 }
-.stat:last-child{border-right:none;}
-.stat-num{font-family:var(--font-display);font-size:clamp(2.6rem,5.5vw,5rem);color:var(--volt);font-variant-numeric:tabular-nums;}
-.stat-num sup{font-size:.4em;color:var(--white);}
-.stat-label{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-40);}
-@media (max-width:900px){
-  .stats{grid-template-columns:repeat(2,1fr);}
-  .stat:nth-child(2){border-right:none;}
-  .stat:nth-child(-n+2){border-bottom:1px solid var(--line);}
+.traject:hover{border-color:var(--volt);transform:translateY(-6px);background:rgba(232,245,0,.03);}
+.traject-index{
+  font-family:var(--font-display);font-size:clamp(2.4rem,5vw,4rem);line-height:1;
+  color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.22);
+  transition:color var(--dur-fast),-webkit-text-stroke-color var(--dur-fast);
 }
+.traject:hover .traject-index{color:var(--volt);-webkit-text-stroke-color:var(--volt);}
+.traject h3{font-size:clamp(1.6rem,3vw,2.4rem);}
+.traject h3 small{display:block;font-family:var(--font-body);font-weight:700;font-size:.72rem;letter-spacing:.28em;color:var(--volt);margin-bottom:.5rem;}
+.traject p{color:var(--ink-70);max-width:46ch;}
+.traject-chips{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:auto;padding-top:.6rem;}
+.traject-chips span{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;border:1px solid var(--line);padding:.4rem .8rem;color:var(--ink-70);}
+
+/* ============ TARIEVEN ============ */
+.tarieven-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;align-items:stretch;}
+@media (max-width:950px){.tarieven-grid{grid-template-columns:1fr;}}
+.plan{
+  position:relative;border:1px solid var(--line);
+  padding:clamp(1.8rem,3vw,2.8rem);
+  display:flex;flex-direction:column;gap:1.2rem;
+  transition:border-color var(--dur-fast),transform var(--dur-base) var(--ease);
+}
+.plan:hover{border-color:var(--volt);transform:translateY(-6px);}
+.plan--featured{background:var(--volt);color:var(--black);border-color:var(--volt);}
+.plan--featured:hover{transform:translateY(-10px);}
+.plan-badge{
+  position:absolute;top:-1px;right:-1px;
+  background:var(--black);color:var(--volt);
+  font-size:.62rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;
+  padding:.55rem 1rem;
+}
+.plan--featured .plan-badge{background:var(--black);color:var(--volt);}
+.plan-name{font-family:var(--font-display);font-size:1.5rem;text-transform:uppercase;}
+.plan-price{font-family:var(--font-display);font-size:clamp(3rem,6vw,4.6rem);line-height:1;}
+.plan-price small{font-family:var(--font-body);font-size:.85rem;font-weight:500;letter-spacing:.05em;opacity:.6;}
+.plan ul{list-style:none;display:flex;flex-direction:column;gap:.7rem;font-size:.95rem;}
+.plan ul li{display:flex;gap:.7rem;align-items:baseline;}
+.plan ul li::before{content:"→";color:var(--volt);font-weight:700;flex-shrink:0;}
+.plan--featured ul li::before{color:var(--black);}
+.plan .btn{justify-content:center;margin-top:auto;}
+.plan--featured .btn{background:var(--black);color:var(--volt);border-color:var(--black);}
+.plan--featured .btn:hover{background:transparent;color:var(--black);}
+.tarieven-note{margin-top:var(--space-3);color:var(--ink-40);font-size:.85rem;display:flex;gap:2rem;flex-wrap:wrap;}
 
 /* ============ DISCIPLINES ============ */
 .disciplines{display:flex;flex-direction:column;}
@@ -427,10 +464,11 @@ h1,h2,h3,.display{
 <header class="nav" id="nav">
   <a href="#top" class="nav-logo"><span class="bolt"></span>STRIKE<span style="color:var(--volt)">PC</span></a>
   <nav class="nav-links">
-    <a href="#disciplines">Disciplines</a>
-    <a href="#transformaties">Transformaties</a>
-    <a href="#rooster">Rooster</a>
-    <a href="#club">De Club</a>
+    <a href="#disciplines">Aanbod</a>
+    <a href="#rooster">Lesrooster</a>
+    <a href="#tarieven">Tarieven</a>
+    <a href="#over">Over Strike PC</a>
+    <a href="#contact">Contact</a>
   </nav>
   <a href="#proefles" class="btn">Gratis proefles</a>
 </header>
@@ -464,8 +502,8 @@ h1,h2,h3,.display{
 </section>
 
 <!-- MANIFESTO -->
-<section class="manifesto" id="club">
-  <div class="section-tag reveal">De Club</div>
+<section class="manifesto" id="over">
+  <div class="section-tag reveal">Over Strike Performance Club</div>
   <p class="manifesto-text" id="manifestoText" style="margin-top:2rem">
     Wij geloven niet in quick fixes. Wij geloven in <span class="accent-src">rondes maken</span>, <span class="accent-src">kilo's verplaatsen</span> en <span class="accent-src">elke week</span> een betere versie van jezelf de mat op sturen.
   </p>
@@ -473,14 +511,6 @@ h1,h2,h3,.display{
     <p class="reveal">Strike Performance Club is een trainingsclub in het hart van de stad. Kickboksen op wedstrijdniveau, HYROX-programmering voor je engine, en strength-blokken die je fundament bouwen.</p>
     <p class="reveal">Kleine groepen, coaches die je naam kennen, en een programma dat periodiseert | zodat je niet random traint, maar richting resultaat.</p>
   </div>
-</section>
-
-<!-- STATS -->
-<section class="stats" id="stats">
-  <div class="stat"><div class="stat-num" data-count="850">0</div><div class="stat-label">Actieve leden</div></div>
-  <div class="stat"><div class="stat-num" data-count="62">0</div><div class="stat-label">Lessen per week</div></div>
-  <div class="stat"><div class="stat-num" data-count="14">0</div><div class="stat-label">Pro coaches</div></div>
-  <div class="stat"><div class="stat-num" data-count="1200" data-suffix="m²">0</div><div class="stat-label">Trainingsvloer</div></div>
 </section>
 
 <!-- DISCIPLINES -->
@@ -525,6 +555,47 @@ h1,h2,h3,.display{
         <div class="disc-meta"><span>Max 12 p/groep</span><span>PR-tracking</span><span>Techniek eerst</span></div>
         <a href="#rooster" class="disc-link">Bekijk lessen <span class="arrow">→</span></a>
       </div>
+    </article>
+  </div>
+</section>
+
+<!-- TRAJECTEN -->
+<section class="section" id="trajecten">
+  <div class="section-head">
+    <div>
+      <div class="section-tag reveal">Trajecten</div>
+      <h2 class="section-title reveal" style="margin-top:1.2rem">Waar kom jij <span class="volt">voor?</span></h2>
+    </div>
+    <p class="reveal" style="max-width:36ch;color:var(--ink-70)">Iedereen traint hier met een ander doel. Wij bouwen het traject eromheen.</p>
+  </div>
+
+  <div class="trajecten-grid">
+    <article class="traject reveal">
+      <div class="traject-index">01</div>
+      <h3><small>Mentaal & fysiek</small>Zelfvertrouwen</h3>
+      <p>Sterker dan je smoesjes. Kickboksen leert je rechtop staan | letterlijk en figuurlijk. Je bouwt discipline, focus en een rust die je meeneemt naar je werk, je relaties en de straat.</p>
+      <div class="traject-chips"><span>Discipline</span><span>Focus</span><span>Mindset</span></div>
+    </article>
+
+    <article class="traject reveal">
+      <div class="traject-index">02</div>
+      <h3><small>Strike Lean · 12 weken</small>Afvaltraject</h3>
+      <p>Meetbaar resultaat, geen crashdieet. Trainen volgens schema, een voedingsplan dat vol te houden is en wekelijkse check-ins met je coach. Gemiddeld resultaat: 8 kilo eraf per traject.</p>
+      <div class="traject-chips"><span>12 weken</span><span>Voedingscoaching</span><span>Wekelijkse metingen</span></div>
+    </article>
+
+    <article class="traject reveal">
+      <div class="traject-index">03</div>
+      <h3><small>Fight Team · op selectie</small>Wedstrijdteam</h3>
+      <p>Klaar voor de ring. Voor vechters die willen knokken op N-klasse en hoger: extra sparring, fight camps, tactiektraining en een corner die je naar de winst schreeuwt op wedstrijddag.</p>
+      <div class="traject-chips"><span>Selectiegroep</span><span>Fight camps</span><span>Cornering</span></div>
+    </article>
+
+    <article class="traject reveal">
+      <div class="traject-index">04</div>
+      <h3><small>Fit & sterk</small>Gewoon fitter</h3>
+      <p>Geen wedstrijdambities, wel resultaat. Meer energie, beter slapen, sterker voelen. Train 2 tot 3 keer per week op jouw tempo, in een groep die je bij je naam kent.</p>
+      <div class="traject-chips"><span>Alle niveaus</span><span>Flexibel</span><span>Community</span></div>
     </article>
   </div>
 </section>
@@ -636,6 +707,62 @@ h1,h2,h3,.display{
   </div>
 </section>
 
+<!-- TARIEVEN -->
+<section class="section" id="tarieven">
+  <div class="section-head">
+    <div>
+      <div class="section-tag reveal">Tarieven</div>
+      <h2 class="section-title reveal" style="margin-top:1.2rem">Simpel & <span class="volt">eerlijk</span></h2>
+    </div>
+    <p class="reveal" style="max-width:34ch;color:var(--ink-70)">Maandelijks opzegbaar. Geen kleine lettertjes, geen inschrijfgeld in je eerste maand.</p>
+  </div>
+
+  <div class="tarieven-grid">
+    <div class="plan reveal">
+      <div class="plan-name">Start</div>
+      <div class="plan-price">€49<small>/mnd</small></div>
+      <ul>
+        <li>2 lessen per week</li>
+        <li>Alle disciplines | kickboxing, HYROX, strength</li>
+        <li>Reserveren via de app</li>
+        <li>Gratis leenhandschoenen eerste maand</li>
+      </ul>
+      <a href="#proefles" class="btn btn--ghost">Start met 3 gratis lessen</a>
+    </div>
+
+    <div class="plan plan--featured reveal">
+      <div class="plan-badge">Meest gekozen</div>
+      <div class="plan-name">Unlimited</div>
+      <div class="plan-price">€69<small>/mnd</small></div>
+      <ul>
+        <li>Onbeperkt lessen, alle disciplines</li>
+        <li>Open gym & Sunday Run Club</li>
+        <li>Voorrang bij populaire lessen</li>
+        <li>Membership pauzeren kan altijd</li>
+      </ul>
+      <a href="#proefles" class="btn">Start met 3 gratis lessen</a>
+    </div>
+
+    <div class="plan reveal">
+      <div class="plan-name">All-in Performance</div>
+      <div class="plan-price">€99<small>/mnd</small></div>
+      <ul>
+        <li>Alles uit Unlimited</li>
+        <li>Strike Lean afvaltraject inbegrepen</li>
+        <li>1 personal training per maand</li>
+        <li>Kwartaalmetingen + voedingsplan</li>
+      </ul>
+      <a href="#proefles" class="btn btn--ghost">Start met 3 gratis lessen</a>
+    </div>
+  </div>
+
+  <div class="tarieven-note reveal">
+    <span>→ Studenten 10% korting</span>
+    <span>→ Fight Team op selectie, geen extra kosten</span>
+    <span>→ 10-rittenkaart beschikbaar: €99</span>
+  </div>
+</section>
+
 <!-- PROEFLES -->
 <section class="trial" id="proefles">
   <div class="trial-bg" aria-hidden="true"></div>
@@ -681,16 +808,18 @@ h1,h2,h3,.display{
 </section>
 
 <!-- FOOTER -->
-<footer class="footer">
+<footer class="footer" id="contact">
   <div class="footer-top">
     <div class="footer-brand">Strike<br>Performance<br><span class="volt">Club</span></div>
     <div class="footer-cols">
       <div class="footer-col">
         <h4>Club</h4>
-        <a href="#disciplines">Disciplines</a>
-        <a href="#rooster">Rooster</a>
-        <a href="#transformaties">Transformaties</a>
-        <a href="#proefles">Proefles</a>
+        <a href="#disciplines">Aanbod</a>
+        <a href="#trajecten">Trajecten</a>
+        <a href="#rooster">Lesrooster</a>
+        <a href="#tarieven">Tarieven</a>
+        <a href="#over">Over Strike PC</a>
+        <a href="#proefles">Gratis proefles</a>
       </div>
       <div class="footer-col">
         <h4>Bezoek</h4>
@@ -928,24 +1057,6 @@ var mText = document.getElementById("manifestoText");
     words.forEach(function(w){ w.style.color = w.classList.contains("accent") ? "#E8F500" : "#FFFFFF"; });
   }
 })();
-
-/* ---------- Stats counters ---------- */
-document.querySelectorAll(".stat-num").forEach(function(el){
-  var target = parseInt(el.dataset.count, 10);
-  var suffix = el.dataset.suffix || "";
-  var obj = { v: 0 };
-  ScrollTrigger.create({
-    trigger: el, start: "top 85%", once: true,
-    onEnter: function(){
-      gsap.to(obj, {
-        v: target, duration: reduced ? 0 : 1.8, ease: "power3.out",
-        onUpdate: function(){
-          el.innerHTML = Math.floor(obj.v) + (suffix ? "<sup>" + suffix + "</sup>" : "");
-        }
-      });
-    }
-  });
-});
 
 /* ---------- Before/After slider ---------- */
 var ba = document.getElementById("baSlider");
