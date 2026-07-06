@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesrooster | Strike Performance Club</title>
+<meta name="description" content="Het volledige weekrooster van Strike Performance Club | kickboxing, HYROX, strength en conditioning.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="cursor" aria-hidden="true"></div>
+
+<header class="nav is-scrolled" id="nav">
+  <a href="index.html" class="nav-logo"><span class="bolt"></span>STRIKE<span style="color:var(--volt)">CLUB</span></a>
+  <nav class="nav-links">
+    <a href="index.html#disciplines">Aanbod</a>
+    <a href="rooster.html" class="is-current">Lesrooster</a>
+    <a href="tarieven.html">Tarieven</a>
+    <a href="over.html">Over Strike Club</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <a href="index.html#proefles" class="btn">Gratis proefles</a>
+</header>
+
+<section class="page-hero">
+  <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1533560904424-a0c61dc306fc?w=1800&q=65&fm=jpg')"></div>
+  <div class="section-tag reveal">Lesrooster</div>
+  <h1 class="page-hero-title reveal">De hele week<br><span class="outline">in één</span> <span class="volt">oogopslag</span></h1>
+  <p class="lead reveal">62 lessen per week, van 07:00 's ochtends tot de late avond. Filter op discipline en vind jouw moment. Reserveren gaat via de app | proefleden draaien gratis mee met elke les met een ● erbij.</p>
+</section>
+
+<section class="section">
+  <div class="filters" id="filters">
+    <button class="filter is-active" data-filter="all">Alles</button>
+    <button class="filter" data-filter="kick">Kickboxing</button>
+    <button class="filter" data-filter="hyrox">HYROX</button>
+    <button class="filter" data-filter="strength">Strength</button>
+    <button class="filter" data-filter="cond">Conditioning</button>
+  </div>
+
+  <div class="week reveal" id="week">
+    <div class="day-col">
+      <div class="day-name">Maandag<small>Dag 01</small></div>
+      <div class="slot" data-cat="kick"><span class="slot-time">07:00</span><span class="slot-name">Early Strike</span><span class="slot-coach">Coach Bo</span><span class="slot-cat">Kickboxing ●</span></div>
+      <div class="slot" data-cat="hyrox"><span class="slot-time">12:15</span><span class="slot-name">Lunch Engine</span><span class="slot-coach">Coach Milan</span><span class="slot-cat">HYROX ●</span></div>
+      <div class="slot" data-cat="kick"><span class="slot-time">17:30</span><span class="slot-name">Kickboxing Fundamentals</span><span class="slot-coach">Coach Yassin</span><span class="slot-cat">Kickboxing ●</span></div>
+      <div class="slot" data-cat="kick"><span class="slot-time">18:30</span><span class="slot-name">Kickboxing Advanced</span><span class="slot-coach">Coach Yassin</span><span class="slot-cat">Kickboxing</span></div>
+      <div class="slot" data-cat="strength"><span class="slot-time">19:30</span><span class="slot-name">Strength Block A</span><span class="slot-coach">Coach Dana</span><span class="slot-cat">Strength ●</span></div>
+    </div>
+
+    <div class="day-col">
+      <div class="day-name">Dinsdag<small>Dag 02</small></div>
+      <div class="slot" data-cat="hyrox"><span class="slot-time">07:00</span><span class="slot-name">HYROX Engine</span><span class="slot-coach">Coach Milan</span><span class="slot-cat">HYROX ●</span></div>
+      <div class="slot" data-cat="strength"><span class="slot-time">12:15</span><span class="slot-name">Power Lunch</span><span class="slot-coach">Coach Dana</span><span class="slot-cat">Strength ●</span></div>
+      <div class="slot" data-cat="hyrox"><span class="slot-time">17:30</span><span class="slot-name">HYROX Basics</span><span class="slot-coach">Coach Femke</span><span class="slot-cat">HYROX ●</span></div>
+      <div class="slot" data-cat="kick"><span class="slot-time">18:30</span><span class="slot-name">Kickboxing All Levels</span><span class="slot-coach">Coach Bo</span><span class="slot-cat">Kickboxing ●</span></div>
+      <div class="slot" data-cat="cond"><span class="slot-time">19:30</span><span class="slot-name">Core & Mobility</span><span class="slot-coach">Coach Femke</span><span class="slot-cat">Conditioning ●</span></div>
+    </div>
+
+    <div class="day-col">
+      <div class="day-name">Woensdag<small>Dag 03</small></div>
+      <div class="slot" data-cat="kick"><span class="slot-time">07:00</span><span class="slot-name">Early Strike</span><span class="slot-coach">Coach Bo</span><span class="slot-cat">Kickboxing ●</span></div>
+      <div class="slot" data-cat="hyrox"><span class="slot-time">12:15</span><span class="slot-name">Lunch Engine</span><span class="slot-coach">Coach Milan</span><span class="slot-cat">HYROX ●</span></div>
+      <div class="slot" data-cat="kick"><span class="slot-time">17:30</span><span class="slot-name">Kickboxing Fundamentals</span><span class="slot-coach">Coach Yassin</span><span class="slot-cat">Kickboxing ●</span></div>
+      <div class="slot" data-cat="strength"><span class="slot-time">18:30</span><span class="slot-name">Strength Block B</span><span class="slot-coach">Coach Dana</span><span class="slot-cat">Strength ●</span></div>
+      <div class="slot" data-cat="kick"><span class="slot-time">19:30</span><span class="slot-name">Fight Night Prep</span><span class="slot-coach">Coach Yassin · selectie</span><span class="slot-cat">Kickboxing</span></div>
+    </div>
+
+    <div class="day-col">
+      <div class="day-name">Donderdag<small>Dag 04</small></div>
+      <div class="slot" data-cat="hyrox"><span class="slot-time">07:00</span><span class="slot-name">HYROX Engine</span><span class="slot-coach">Coach Femke</span><span class="slot-cat">HYROX ●</span></div>
+      <div class="slot" data-cat="strength"><span class="slot-time">12:15</span><span class="slot-name">Power Lunch</span><span class="slot-coach">Coach Dana</span><span class="slot-cat">Strength ●</span></div>
+      <div class="slot" data-cat="kick"><span class="slot-time">17:30</span><span class="slot-name">Kickboxing All Levels</span><span class="slot-coach">Coach Bo</span><span class="slot-cat">Kickboxing ●</span></div>
+      <div class="slot" data-cat="kick"><span class="slot-time">18:30</span><span class="slot-name">Kickboxing Advanced</span><span class="slot-coach">Coach Yassin</span><span class="slot-cat">Kickboxing</span></div>
+      <div class="slot" data-cat="cond"><span class="slot-time">19:30</span><span class="slot-name">Hybrid Conditioning</span><span class="slot-coach">Coach Milan</span><span class="slot-cat">Conditioning ●</span></div>
+    </div>
+
+    <div class="day-col">
+      <div class="day-name">Vrijdag<small>Dag 05</small></div>
+      <div class="slot" data-cat="kick"><span class="slot-time">07:00</span><span class="slot-name">Early Strike</span><span class="slot-coach">Coach Bo</span><span class="slot-cat">Kickboxing ●</span></div>
+      <div class="slot" data-cat="hyrox"><span class="slot-time">12:15</span><span class="slot-name">Lunch Engine</span><span class="slot-coach">Coach Milan</span><span class="slot-cat">HYROX ●</span></div>
+      <div class="slot" data-cat="strength"><span class="slot-time">17:30</span><span class="slot-name">Strength Block C</span><span class="slot-coach">Coach Dana</span><span class="slot-cat">Strength ●</span></div>
+      <div class="slot" data-cat="kick"><span class="slot-time">18:30</span><span class="slot-name">Friday Fight Club</span><span class="slot-coach">Coach Yassin</span><span class="slot-cat">Kickboxing ●</span></div>
+    </div>
+
+    <div class="day-col">
+      <div class="day-name">Zaterdag<small>Dag 06</small></div>
+      <div class="slot" data-cat="hyrox"><span class="slot-time">09:00</span><span class="slot-name">HYROX Simulation</span><span class="slot-coach">Coach Milan & Femke</span><span class="slot-cat">HYROX ●</span></div>
+      <div class="slot" data-cat="kick"><span class="slot-time">10:30</span><span class="slot-name">Kickboxing All Levels</span><span class="slot-coach">Coach Bo</span><span class="slot-cat">Kickboxing ●</span></div>
+      <div class="slot" data-cat="cond"><span class="slot-time">12:00</span><span class="slot-name">Open Gym</span><span class="slot-coach">Onder toezicht</span><span class="slot-cat">Open ●</span></div>
+    </div>
+
+    <div class="day-col">
+      <div class="day-name">Zondag<small>Dag 07</small></div>
+      <div class="slot" data-cat="hyrox"><span class="slot-time">10:00</span><span class="slot-name">Sunday Run Club</span><span class="slot-coach">Coach Femke · 5-10 km</span><span class="slot-cat">HYROX ●</span></div>
+      <div class="slot" data-cat="cond"><span class="slot-time">11:00</span><span class="slot-name">Recovery & Mobility</span><span class="slot-coach">Coach Dana</span><span class="slot-cat">Conditioning ●</span></div>
+    </div>
+  </div>
+
+  <div class="rooster-legend">
+    <span><span class="volt">●</span> = gratis toegankelijk voor proefleden</span>
+    <span>Reserveren via de Strike-app | max 48 uur vooruit</span>
+    <span>Advanced & Fight Night Prep op selectie</span>
+  </div>
+</section>
+
+<section class="cta-band">
+  <h2 class="reveal">Eerste les is <span class="volt">gratis</span>. En de tweede. En de derde.</h2>
+  <a href="index.html#proefles" class="btn btn--big reveal">Claim 3 gratis lessen</a>
+</section>
+
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-brand">Strike<br>Performance<br><span class="volt">Club</span></div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4>Club</h4>
+        <a href="index.html#disciplines">Aanbod</a>
+        <a href="index.html#trajecten">Trajecten</a>
+        <a href="rooster.html">Lesrooster</a>
+        <a href="tarieven.html">Tarieven</a>
+        <a href="over.html">Over Strike Club</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Bezoek</h4>
+        <p>Performancekade 12<br>1012 AB Amsterdam</p>
+        <p>Ma t/m vr 06:30 | 22:00<br>Za & zo 08:30 | 17:00</p>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:info@strikeperformance.club">info@strikeperformance.club</a>
+        <a href="tel:+31201234567">+31 20 123 45 67</a>
+        <a href="#">Instagram</a>
+        <a href="#">TikTok</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Strike Performance Club</span>
+    <span>Train hard. Stay sharp.</span>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+<script src="assets/site.js"></script>
+<script>
+/* Filter op discipline */
+(function(){
+"use strict";
+var filters = document.querySelectorAll(".filter");
+var slots = document.querySelectorAll(".slot");
+filters.forEach(function(btn){
+  btn.addEventListener("click", function(){
+    filters.forEach(function(b){ b.classList.remove("is-active"); });
+    btn.classList.add("is-active");
+    var f = btn.dataset.filter;
+    slots.forEach(function(s){
+      s.classList.toggle("is-dimmed", f !== "all" && s.dataset.cat !== f);
+    });
+  });
+});
+})();
+</script>
+</body>
+</html>
