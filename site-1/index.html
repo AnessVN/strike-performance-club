@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strike Performance Club | Kickboxing · HYROX · Strength</title>
+<meta name="description" content="Strike Performance Club | Kickboxing, HYROX en Strength & Conditioning. Claim 3 gratis proeflessen.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="cursor" aria-hidden="true"></div>
+
+<!-- PRELOADER -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader-word" id="loaderWord">
+    <span>S</span><span>T</span><span>R</span><span>I</span><span>K</span><span>E</span>
+  </div>
+  <div class="loader-count" id="loaderCount">000%</div>
+</div>
+<div class="loader-wipe" id="loaderWipe" aria-hidden="true"></div>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <a href="index.html" class="nav-logo"><span class="bolt"></span>STRIKE<span style="color:var(--volt)">CLUB</span></a>
+  <nav class="nav-links">
+    <a href="index.html#disciplines">Aanbod</a>
+    <a href="rooster.html">Lesrooster</a>
+    <a href="tarieven.html">Tarieven</a>
+    <a href="over.html">Over Strike Club</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <a href="index.html#proefles" class="btn">Gratis proefles</a>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-photo" aria-hidden="true"></div>
+  <canvas id="hero-canvas" aria-hidden="true"></canvas>
+  <div class="hero-inner">
+    <div class="hero-kicker reveal">Kickboxing · HYROX · Strength & Conditioning</div>
+    <h1 class="hero-title" aria-label="Strike Performance Club">
+      <span class="line"><span>STRIKE</span></span>
+      <span class="line"><span class="outline">PERFORMANCE</span></span>
+      <span class="line"><span class="volt">CLUB</span></span>
+    </h1>
+    <div class="hero-sub">
+      <p class="reveal"><strong>Train als een atleet.</strong> Geen spiegelselfie-gym, maar een club waar je harder, fitter en scherper wordt | elke week meetbaar.</p>
+      <div class="hero-cta reveal">
+        <a href="index.html#proefles" class="btn btn--big">Claim 3 gratis lessen</a>
+        <a href="rooster.html" class="btn btn--ghost btn--big">Bekijk lesrooster</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="marquee-item">Kickboxing</span><span class="marquee-item">HYROX</span><span class="marquee-item">Strength</span><span class="marquee-item">Conditioning</span><span class="marquee-item">Community</span>
+      <span class="marquee-item">Kickboxing</span><span class="marquee-item">HYROX</span><span class="marquee-item">Strength</span><span class="marquee-item">Conditioning</span><span class="marquee-item">Community</span>
+    </div>
+  </div>
+</section>
+
+<!-- MANIFESTO (teaser naar Over-pagina) -->
+<section class="manifesto">
+  <div class="section-tag reveal">Over Strike Club</div>
+  <p class="manifesto-text" id="manifestoText" style="margin-top:2rem">
+    Wij geloven niet in quick fixes. Wij geloven in <span class="accent-src">rondes maken</span>, <span class="accent-src">kilo's verplaatsen</span> en <span class="accent-src">elke week</span> een betere versie van jezelf de mat op sturen.
+  </p>
+  <div class="manifesto-foot">
+    <p class="reveal">Kickboksen op wedstrijdniveau, HYROX-programmering voor je engine, en strength-blokken die je fundament bouwen. Kleine groepen, coaches die je naam kennen.</p>
+    <a href="over.html" class="disc-link reveal" style="align-self:center">Lees ons hele verhaal <span class="arrow">→</span></a>
+  </div>
+</section>
+
+<!-- DISCIPLINES -->
+<section class="section" id="disciplines" style="padding-left:0;padding-right:0;">
+  <div class="section-head" style="padding:0 var(--gutter);">
+    <div>
+      <div class="section-tag reveal">Aanbod</div>
+      <h2 class="section-title reveal" style="margin-top:1.2rem">Kies je <span class="volt">wapen</span></h2>
+    </div>
+    <p class="reveal" style="max-width:36ch;color:var(--ink-70)">Drie programma's, één systeem. Combineer ze onbeperkt met je membership.</p>
+  </div>
+
+  <div class="disciplines">
+    <article class="disc">
+      <div class="disc-media"><img src="https://images.unsplash.com/photo-1591117207239-788bf8de6c3b?w=1400&q=70&fm=jpg" alt="Kickbokser deelt een stoot uit tijdens sparring" loading="lazy"></div>
+      <div class="disc-body">
+        <div class="disc-index">01</div>
+        <h3 class="disc-title">Kick<em>boxing</em></h3>
+        <p class="disc-desc">Techniek, footwork, sparring en bagwork. Van je allereerste jab tot wedstrijdvoorbereiding | alle niveaus, aparte beginners-tracks.</p>
+        <div class="disc-meta"><span>Alle niveaus</span><span>16 lessen p/w</span><span>Sparring optioneel</span></div>
+        <a href="rooster.html" class="disc-link">Bekijk lessen <span class="arrow">→</span></a>
+      </div>
+    </article>
+
+    <article class="disc">
+      <div class="disc-media"><img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?w=1400&q=70&fm=jpg" alt="Atleet traint met battle ropes in industriële omgeving" loading="lazy"></div>
+      <div class="disc-body">
+        <div class="disc-index">02</div>
+        <h3 class="disc-title">HY<em>ROX</em></h3>
+        <p class="disc-desc">Run, sled, wall balls, burpee broad jumps. Volledige race-simulaties en engine-blokken die je klaarstomen voor je eerste (of snelste) HYROX.</p>
+        <div class="disc-meta"><span>Race prep</span><span>Doubles & singles</span><span>Officiële sleds</span></div>
+        <a href="rooster.html" class="disc-link">Bekijk lessen <span class="arrow">→</span></a>
+      </div>
+    </article>
+
+    <article class="disc">
+      <div class="disc-media"><img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=1400&q=70&fm=jpg" alt="Atleet pakt barbell vast voor een deadlift" loading="lazy"></div>
+      <div class="disc-body">
+        <div class="disc-index">03</div>
+        <h3 class="disc-title">Strength <em>& Cond.</em></h3>
+        <p class="disc-desc">Gecoachte krachtblokken: squat, hinge, press, pull. Het fundament onder je rondes en races | geperiodiseerd in cycli van 6 weken.</p>
+        <div class="disc-meta"><span>Max 12 p/groep</span><span>PR-tracking</span><span>Techniek eerst</span></div>
+        <a href="rooster.html" class="disc-link">Bekijk lessen <span class="arrow">→</span></a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- TRAJECTEN -->
+<section class="section" id="trajecten">
+  <div class="section-head">
+    <div>
+      <div class="section-tag reveal">Trajecten</div>
+      <h2 class="section-title reveal" style="margin-top:1.2rem">Waar kom jij <span class="volt">voor?</span></h2>
+    </div>
+    <p class="reveal" style="max-width:36ch;color:var(--ink-70)">Iedereen traint hier met een ander doel. Wij bouwen het traject eromheen.</p>
+  </div>
+
+  <div class="trajecten-grid">
+    <article class="traject reveal">
+      <div class="traject-index">01</div>
+      <h3><small>Mentaal & fysiek</small>Zelfvertrouwen</h3>
+      <p>Sterker dan je smoesjes. Kickboksen leert je rechtop staan | letterlijk en figuurlijk. Je bouwt discipline, focus en een rust die je meeneemt naar je werk, je relaties en de straat.</p>
+      <div class="traject-chips"><span>Discipline</span><span>Focus</span><span>Mindset</span></div>
+    </article>
+
+    <article class="traject reveal">
+      <div class="traject-index">02</div>
+      <h3><small>Strike Lean · 12 weken</small>Afvaltraject</h3>
+      <p>Meetbaar resultaat, geen crashdieet. Trainen volgens schema, een voedingsplan dat vol te houden is en wekelijkse check-ins met je coach. Gemiddeld resultaat: 8 kilo eraf per traject.</p>
+      <div class="traject-chips"><span>12 weken</span><span>Voedingscoaching</span><span>Wekelijkse metingen</span></div>
+    </article>
+
+    <article class="traject reveal">
+      <div class="traject-index">03</div>
+      <h3><small>Fight Team · op selectie</small>Wedstrijdteam</h3>
+      <p>Klaar voor de ring. Voor vechters die willen knokken op N-klasse en hoger: extra sparring, fight camps, tactiektraining en een corner die je naar de winst schreeuwt op wedstrijddag.</p>
+      <div class="traject-chips"><span>Selectiegroep</span><span>Fight camps</span><span>Cornering</span></div>
+    </article>
+
+    <article class="traject reveal">
+      <div class="traject-index">04</div>
+      <h3><small>Fit & sterk</small>Gewoon fitter</h3>
+      <p>Geen wedstrijdambities, wel resultaat. Meer energie, beter slapen, sterker voelen. Train 2 tot 3 keer per week op jouw tempo, in een groep die je bij je naam kent.</p>
+      <div class="traject-chips"><span>Alle niveaus</span><span>Flexibel</span><span>Community</span></div>
+    </article>
+  </div>
+</section>
+
+<!-- TRANSFORMATIES -->
+<section class="section" id="transformaties">
+  <div class="section-head">
+    <div>
+      <div class="section-tag reveal">Transformaties</div>
+      <h2 class="section-title reveal" style="margin-top:1.2rem">Bewijs > <span class="volt">beloftes</span></h2>
+    </div>
+  </div>
+
+  <div class="transform-grid">
+    <div class="ba reveal" id="baSlider" role="img" aria-label="Voor en na vergelijking van een lid">
+      <div class="ba-before"><img src="https://images.unsplash.com/photo-1594737625785-a6cbdabd333c?w=1200&q=70&fm=jpg" alt=""></div>
+      <div class="ba-after" id="baAfter"><img src="https://images.unsplash.com/photo-1574680096145-d05b474e2155?w=1200&q=70&fm=jpg" alt=""></div>
+      <span class="ba-label ba-label--before">Week 1</span>
+      <span class="ba-label ba-label--after">Week 24</span>
+      <div class="ba-handle" id="baHandle"></div>
+    </div>
+
+    <div class="transform-copy">
+      <h3 class="reveal">6 maanden. Zelfde persoon. <span style="color:var(--volt)">Ander verhaal.</span></h3>
+      <p class="reveal" style="color:var(--ink-70)">Sleep de balk en zie wat consistent trainen doet. Geen crashdieet, geen 6-dagen-per-week bootcamp | gewoon 3 tot 4 slimme sessies per week met een plan.</p>
+      <blockquote class="quote reveal">
+        "Ik kwam voor de kickbokslessen, ik bleef voor de mensen. 18 kilo lichter en ik sta in oktober op de HYROX-startlijst."
+        <strong>Samira · lid sinds 2025 · <em>−18 kg</em></strong>
+      </blockquote>
+      <blockquote class="quote reveal">
+        "Elke les staat er een coach die je corrigeert. Dat verschil merk je binnen een maand in je techniek én je lijf."
+        <strong>Jeffrey · lid sinds 2024 · <em>eerste HYROX sub 90 min</em></strong>
+      </blockquote>
+      <a href="index.html#proefles" class="btn reveal" style="width:fit-content">Start jouw transformatie</a>
+    </div>
+  </div>
+
+  <div class="community-grid">
+    <figure class="cg-1 reveal"><img src="https://images.unsplash.com/photo-1554284126-aa88f22d8b74?w=1400&q=70&fm=jpg" alt="Groepstraining met barbells in dramatisch licht" loading="lazy"><figcaption>Squad sessions</figcaption></figure>
+    <figure class="cg-2 reveal"><img src="https://images.unsplash.com/photo-1533560904424-a0c61dc306fc?w=1000&q=70&fm=jpg" alt="Trainingsgroep spot elkaar tijdens squats" loading="lazy"><figcaption>Iedereen telt mee</figcaption></figure>
+    <figure class="cg-3 reveal"><img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=800&q=70&fm=jpg" alt="Runners tijdens zonsopgang" loading="lazy"><figcaption>Sunday run club</figcaption></figure>
+    <figure class="cg-4 reveal"><img src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?w=800&q=70&fm=jpg" alt="Atleet doet barbell curls" loading="lazy"><figcaption>Strength block</figcaption></figure>
+    <figure class="cg-5 reveal"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=70&fm=jpg" alt="Atleten doen push-ups" loading="lazy"><figcaption>Engine work</figcaption></figure>
+  </div>
+</section>
+
+<!-- PROEFLES -->
+<section class="trial" id="proefles">
+  <div class="trial-bg" aria-hidden="true"></div>
+  <div class="trial-inner">
+    <div>
+      <div class="section-tag reveal">Gratis proeftrainen</div>
+      <h2 class="trial-title reveal" style="margin-top:1.2rem">3 lessen.<br><span class="volt">0 euro.</span><br>0 smoesjes.</h2>
+      <p class="trial-copy reveal">Meld je aan en train drie keer gratis mee | kickboxing, HYROX of strength, jij kiest. Geen abonnement, geen kleine lettertjes. Bevalt het niet? Dan schud je ons de hand en klaar.</p>
+      <div class="trial-usps">
+        <div class="trial-usp reveal">Binnen 24 uur persoonlijk ingepland</div>
+        <div class="trial-usp reveal">Gratis leenhandschoenen bij je eerste les</div>
+        <div class="trial-usp reveal">Intake met een coach, geen verkoopgesprek</div>
+      </div>
+    </div>
+
+    <form class="trial-form reveal" id="trialForm" novalidate>
+      <h3>Claim je 3 gratis lessen</h3>
+      <div>
+        <label for="fNaam">Naam</label>
+        <input type="text" id="fNaam" name="naam" placeholder="Je voor- en achternaam" required autocomplete="name">
+      </div>
+      <div>
+        <label for="fEmail">E-mail</label>
+        <input type="email" id="fEmail" name="email" placeholder="jij@voorbeeld.nl" required autocomplete="email">
+      </div>
+      <div>
+        <label for="fDisc">Waar wil je mee starten?</label>
+        <select id="fDisc" name="discipline">
+          <option>Kickboxing</option>
+          <option>HYROX</option>
+          <option>Strength & Conditioning</option>
+          <option>Verras me | mix van alles</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn--big">Plan mijn eerste les →</button>
+      <p style="font-size:.72rem;color:var(--ink-40)">Geen spam, geen verplichtingen. We mailen je binnen 24 uur.</p>
+      <div class="form-success" id="formSuccess">
+        <div class="big">Je staat op de lijst 🥊</div>
+        <p style="color:var(--ink-70)">Check je inbox | we plannen je eerste les binnen 24 uur in.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-brand">Strike<br>Performance<br><span class="volt">Club</span></div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4>Club</h4>
+        <a href="index.html#disciplines">Aanbod</a>
+        <a href="index.html#trajecten">Trajecten</a>
+        <a href="rooster.html">Lesrooster</a>
+        <a href="tarieven.html">Tarieven</a>
+        <a href="over.html">Over Strike Club</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Bezoek</h4>
+        <p>Performancekade 12<br>1012 AB Amsterdam</p>
+        <p>Ma t/m vr 06:30 | 22:00<br>Za & zo 08:30 | 17:00</p>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:info@strikeperformance.club">info@strikeperformance.club</a>
+        <a href="tel:+31201234567">+31 20 123 45 67</a>
+        <a href="#">Instagram</a>
+        <a href="#">TikTok</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Strike Performance Club</span>
+    <span>Train hard. Stay sharp.</span>
+  </div>
+</footer>
+
+<!-- LIBS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+<script src="assets/site.js"></script>
+
+<script>
+/* Home-specifiek: preloader, 3D hero, manifesto scrub, before/after, proefles-form */
+(function(){
+"use strict";
+var reduced = SPC.reduced, isMobile = SPC.isMobile;
+
+/* ---------- Preloader ---------- */
+var loader = document.getElementById("loader");
+var wipe = document.getElementById("loaderWipe");
+var countEl = document.getElementById("loaderCount");
+var letters = document.querySelectorAll("#loaderWord span");
+var heroLines = document.querySelectorAll(".hero-title .line > span");
+var progress = 0;
+
+gsap.to(letters, { y: 0, duration: .9, stagger: .06, ease: "power4.out", delay: .15 });
+
+var tick = setInterval(function(){
+  progress += Math.random() * 13;
+  if (progress >= 100) { progress = 100; }
+  countEl.textContent = String(Math.floor(progress)).padStart(3, "0") + "%";
+  if (progress === 100) { clearInterval(tick); finishLoader(); }
+}, 110);
+
+function finishLoader(){
+  var tl = gsap.timeline();
+  tl.to(letters, { y: "-110%", duration: .5, stagger: .04, ease: "power3.in" })
+    .to(countEl, { opacity: 0, duration: .3 }, "<")
+    .set(wipe, { y: "0%" })
+    .to(loader, { opacity: 0, duration: .25, onComplete: function(){ loader.style.display = "none"; } })
+    .to(wipe, { y: "-101%", duration: .9, ease: "power4.inOut", onComplete: function(){ wipe.style.display = "none"; } }, "+=0.05")
+    .to(heroLines, { y: 0, duration: 1.05, stagger: .09, ease: "power4.out" }, "-=0.55")
+    .fromTo(".hero-kicker, .hero-sub .reveal",
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: .8, stagger: .1, ease: "power3.out",
+        onComplete: function(){ document.querySelectorAll(".hero .reveal").forEach(function(el){ el.classList.remove("reveal"); }); }
+      }, "-=0.6");
+}
+if (reduced) {
+  clearInterval(tick);
+  loader.style.display = "none"; wipe.style.display = "none";
+  heroLines.forEach(function(s){ s.style.transform = "none"; });
+  document.querySelectorAll(".hero .reveal").forEach(function(el){ el.classList.remove("reveal"); });
+}
+
+/* ---------- Three.js hero (skip op mobiel/reduced) ---------- */
+var canvas = document.getElementById("hero-canvas");
+if (!reduced && !isMobile && typeof THREE !== "undefined") {
+  var renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.75));
+  var scene = new THREE.Scene();
+  var camera = new THREE.PerspectiveCamera(60, innerWidth / innerHeight, .1, 100);
+  camera.position.z = 7;
+
+  var VOLT = 0xE8F500;
+
+  var ico = new THREE.Mesh(
+    new THREE.IcosahedronGeometry(2.1, 1),
+    new THREE.MeshBasicMaterial({ color: VOLT, wireframe: true, transparent: true, opacity: .5 })
+  );
+  ico.position.set(2.6, .4, 0);
+  scene.add(ico);
+
+  var icoInner = new THREE.Mesh(
+    new THREE.IcosahedronGeometry(1.15, 0),
+    new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: true, transparent: true, opacity: .18 })
+  );
+  icoInner.position.copy(ico.position);
+  scene.add(icoInner);
+
+  var COUNT = 900;
+  var pos = new Float32Array(COUNT * 3);
+  for (var i = 0; i < COUNT; i++) {
+    pos[i*3]   = (Math.random() - .5) * 22;
+    pos[i*3+1] = (Math.random() - .5) * 12;
+    pos[i*3+2] = (Math.random() - .5) * 9;
+  }
+  var pGeo = new THREE.BufferGeometry();
+  pGeo.setAttribute("position", new THREE.BufferAttribute(pos, 3));
+  var points = new THREE.Points(pGeo, new THREE.PointsMaterial({ color: VOLT, size: .035, transparent: true, opacity: .75 }));
+  scene.add(points);
+
+  var mouseX = 0, mouseY = 0;
+  window.addEventListener("mousemove", function(e){
+    mouseX = (e.clientX / innerWidth - .5) * 2;
+    mouseY = (e.clientY / innerHeight - .5) * 2;
+  }, { passive: true });
+
+  function resize(){
+    var w = canvas.clientWidth, h = canvas.clientHeight;
+    renderer.setSize(w, h, false);
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+  }
+  window.addEventListener("resize", resize, { passive: true });
+  resize();
+
+  var heroVisible = true;
+  ScrollTrigger.create({
+    trigger: ".hero", start: "top top", end: "bottom top",
+    onToggle: function(self){ heroVisible = self.isActive; }
+  });
+
+  var clock = new THREE.Clock();
+  (function animate(){
+    requestAnimationFrame(animate);
+    if (!heroVisible) return;
+    var t = clock.getElapsedTime();
+    ico.rotation.y = t * .22;  ico.rotation.x = t * .13;
+    icoInner.rotation.y = -t * .3; icoInner.rotation.z = t * .18;
+    points.rotation.y = t * .02;
+    camera.position.x += ((mouseX * .8) - camera.position.x) * .04;
+    camera.position.y += ((-mouseY * .5) - camera.position.y) * .04;
+    camera.lookAt(0, 0, 0);
+    renderer.render(scene, camera);
+  })();
+
+  gsap.to(canvas, {
+    yPercent: 22, opacity: 0, ease: "none",
+    scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true }
+  });
+}
+gsap.to(".hero-photo", {
+  yPercent: 14, ease: "none",
+  scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true }
+});
+
+/* ---------- Manifesto woord-voor-woord scrub ---------- */
+var mText = document.getElementById("manifestoText");
+(function(){
+  var tmp = document.createElement("div");
+  tmp.innerHTML = mText.innerHTML;
+  var out = [];
+  function walk(node, isAccent){
+    node.childNodes.forEach(function(c){
+      if (c.nodeType === 3) {
+        c.textContent.split(/\s+/).forEach(function(w){
+          if (!w) return;
+          out.push('<span class="word' + (isAccent ? ' accent' : '') + '">' + w + '</span>');
+        });
+      } else if (c.nodeType === 1) {
+        walk(c, c.classList.contains("accent-src"));
+      }
+    });
+  }
+  walk(tmp, false);
+  mText.innerHTML = out.join(" ");
+  var words = mText.querySelectorAll(".word");
+  if (!reduced) {
+    gsap.to(words, {
+      color: function(i, el){ return el.classList.contains("accent") ? "#E8F500" : "#FFFFFF"; },
+      stagger: .06, ease: "none",
+      scrollTrigger: { trigger: mText, start: "top 75%", end: "bottom 45%", scrub: .4 }
+    });
+  } else {
+    words.forEach(function(w){ w.style.color = w.classList.contains("accent") ? "#E8F500" : "#FFFFFF"; });
+  }
+})();
+
+/* ---------- Before/After slider ---------- */
+var ba = document.getElementById("baSlider");
+var baAfter = document.getElementById("baAfter");
+var baHandle = document.getElementById("baHandle");
+function setBA(p){
+  p = Math.max(2, Math.min(98, p));
+  baAfter.style.clipPath = "inset(0 0 0 " + p + "%)";
+  baHandle.style.left = p + "%";
+}
+function baMove(clientX){
+  var r = ba.getBoundingClientRect();
+  setBA(((clientX - r.left) / r.width) * 100);
+}
+var dragging = false;
+ba.addEventListener("pointerdown", function(e){ dragging = true; ba.setPointerCapture(e.pointerId); baMove(e.clientX); });
+ba.addEventListener("pointermove", function(e){ if (dragging) baMove(e.clientX); });
+ba.addEventListener("pointerup", function(){ dragging = false; });
+ba.addEventListener("pointercancel", function(){ dragging = false; });
+ScrollTrigger.create({
+  trigger: ba, start: "top 75%", once: true,
+  onEnter: function(){
+    if (reduced) return;
+    var obj = { p: 50 };
+    gsap.timeline()
+      .to(obj, { p: 68, duration: .7, ease: "power2.inOut", onUpdate: function(){ setBA(obj.p); } })
+      .to(obj, { p: 42, duration: .7, ease: "power2.inOut", onUpdate: function(){ setBA(obj.p); } })
+      .to(obj, { p: 50, duration: .5, ease: "power2.out", onUpdate: function(){ setBA(obj.p); } });
+  }
+});
+
+/* ---------- Trial form ---------- */
+var form = document.getElementById("trialForm");
+form.addEventListener("submit", function(e){
+  e.preventDefault();
+  var naam = document.getElementById("fNaam");
+  var email = document.getElementById("fEmail");
+  if (!naam.value.trim() || !email.value.trim() || email.validity.typeMismatch) {
+    [naam, email].forEach(function(f){
+      if (!f.value.trim() || f.validity.typeMismatch) {
+        f.style.borderColor = "#E8F500";
+        gsap.fromTo(f, { x: -6 }, { x: 0, duration: .4, ease: "elastic.out(1,.35)" });
+      }
+    });
+    return;
+  }
+  Array.prototype.forEach.call(form.children, function(c){
+    if (!c.classList.contains("form-success") && c.tagName !== "H3") c.style.display = "none";
+  });
+  document.getElementById("formSuccess").classList.add("is-visible");
+});
+})();
+</script>
+</body>
+</html>

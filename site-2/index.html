@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strike Performance Club | Kickboksen in onze privé performance gym</title>
+<meta name="description" content="Personal training en kickboksen in kleine groepen. Plan een gratis intakegesprek bij Strike Performance Club.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --volt:#E8F500;
+  --black:#000000;
+  --white:#FFFFFF;
+  --ink-70:rgba(255,255,255,.70);
+  --ink-40:rgba(255,255,255,.40);
+  --line:rgba(255,255,255,.14);
+  --font-display:'Anton', Impact, sans-serif;
+  --font-body:'Space Grotesk', sans-serif;
+  --ease:cubic-bezier(.76,0,.24,1);
+  --dur-fast:.3s;
+  --space-3:2rem; --space-4:4rem; --space-5:7rem;
+  --gutter:clamp(1.25rem, 4vw, 4rem);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html.lenis, html.lenis body{height:auto;}
+.lenis.lenis-smooth{scroll-behavior:auto!important;}
+body{background:var(--black);color:var(--white);font-family:var(--font-body);line-height:1.55;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+::selection{background:var(--volt);color:var(--black);}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;cursor:pointer;}
+h1,h2,h3{font-family:var(--font-display);font-weight:400;text-transform:uppercase;line-height:.95;}
+
+.cursor{
+  position:fixed;top:0;left:0;width:14px;height:14px;border-radius:50%;
+  background:var(--volt);pointer-events:none;z-index:9999;
+  transform:translate(-50%,-50%);
+  transition:width .25s var(--ease),height .25s var(--ease),opacity .25s;
+  mix-blend-mode:difference;opacity:0;
+}
+.cursor.is-active{width:64px;height:64px;}
+@media (hover:none), (max-width:900px){.cursor{display:none;}}
+
+/* NAV */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.1rem var(--gutter);
+  transition:background var(--dur-fast),border-color var(--dur-fast);
+  border-bottom:1px solid transparent;
+}
+.nav.is-scrolled{background:rgba(0,0,0,.88);backdrop-filter:blur(12px);border-bottom-color:var(--line);}
+.nav-logo{font-family:var(--font-display);font-size:1.25rem;display:flex;align-items:center;gap:.5rem;}
+.nav-logo .bolt{width:12px;height:12px;background:var(--volt);clip-path:polygon(0 0,100% 0,35% 100%,35% 45%,0 45%);}
+.nav-links{display:flex;gap:clamp(1.1rem,2vw,2rem);font-size:.75rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;}
+.nav-links a{position:relative;padding:.2rem 0;}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--volt);transform:scaleX(0);transform-origin:right;transition:transform var(--dur-fast) var(--ease);}
+.nav-links a:hover::after{transform:scaleX(1);transform-origin:left;}
+@media (max-width:1020px){.nav-links{display:none;}}
+.btn{
+  display:inline-flex;align-items:center;gap:.7rem;
+  background:var(--volt);color:var(--black);
+  font-weight:700;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;
+  padding:.95rem 1.7rem;border:2px solid var(--volt);
+  transition:background var(--dur-fast),color var(--dur-fast);
+}
+.btn:hover{background:transparent;color:var(--volt);}
+.btn--ghost{background:transparent;color:var(--white);border-color:var(--white);}
+.btn--ghost:hover{border-color:var(--volt);color:var(--volt);}
+.btn--big{font-size:1rem;padding:1.3rem 2.6rem;}
+
+/* HERO | centered quote zoals abood */
+.hero{
+  position:relative;min-height:100svh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;overflow:hidden;padding:0 var(--gutter);
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:url("https://images.unsplash.com/photo-1591117207239-788bf8de6c3b?w=1800&q=70&fm=jpg") center 25%/cover no-repeat;
+  filter:grayscale(1) contrast(1.15) brightness(.38);
+}
+.hero-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 0%,rgba(0,0,0,.72) 100%);}
+.hero-inner{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:1.6rem;}
+.hero-quote{
+  font-size:clamp(2.6rem,8.5vw,7.5rem);
+  max-width:14ch;
+}
+.hero-quote .volt{color:var(--volt);}
+.hero-sub{font-size:clamp(1rem,1.6vw,1.3rem);color:var(--ink-70);max-width:38ch;}
+.hero-cta{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin-top:.6rem;}
+
+/* MARQUEE */
+.marquee{background:var(--volt);color:var(--black);overflow:hidden;white-space:nowrap;}
+.marquee-track{display:inline-flex;padding:.85rem 0;animation:marquee 22s linear infinite;will-change:transform;}
+.marquee-item{font-family:var(--font-display);font-size:clamp(1.2rem,2.4vw,2rem);text-transform:uppercase;display:inline-flex;align-items:center;gap:1.5rem;padding-right:1.5rem;}
+.marquee-item::after{content:"";width:13px;height:13px;background:var(--black);clip-path:polygon(0 0,100% 0,35% 100%,35% 45%,0 45%);}
+@keyframes marquee{to{transform:translateX(-50%);}}
+
+/* SECTION SHELL */
+.section{padding:var(--space-5) var(--gutter);}
+.section-tag{
+  color:var(--volt);font-size:.78rem;font-weight:700;letter-spacing:.35em;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:.8rem;
+}
+.section-tag::before{content:"";width:30px;height:2px;background:var(--volt);}
+.section-title{font-size:clamp(2.4rem,6.5vw,5.5rem);margin-top:1.2rem;}
+.section-title .volt{color:var(--volt);}
+
+/* OVER ONS | split */
+.over{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4);align-items:center;}
+@media (max-width:950px){.over{grid-template-columns:1fr;}}
+.over-media{position:relative;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/5;max-height:74vh;width:100%;}
+.over-media img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.12) brightness(.8);transition:filter .8s var(--ease),transform 1s var(--ease);}
+.over-media:hover img{filter:grayscale(.15) brightness(.92);transform:scale(1.04);}
+.over-media .stamp{
+  position:absolute;bottom:1.2rem;left:1.2rem;
+  background:var(--volt);color:var(--black);font-family:var(--font-display);
+  text-transform:uppercase;font-size:1rem;padding:.5rem 1rem;
+}
+.over-copy p{color:var(--ink-70);margin-top:1.2rem;max-width:52ch;}
+.over-copy p strong{color:var(--white);}
+.over-usps{margin-top:1.6rem;display:flex;flex-direction:column;gap:.8rem;}
+.over-usp{display:flex;gap:.9rem;align-items:baseline;font-weight:500;}
+.over-usp::before{content:"→";color:var(--volt);font-weight:700;}
+.over-copy .btn{margin-top:2rem;}
+
+/* WERKWIJZE | 3 stappen */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:var(--space-4);}
+@media (max-width:800px){.steps{grid-template-columns:1fr;}}
+.step{background:var(--black);padding:clamp(2rem,4vw,3.5rem);display:flex;flex-direction:column;gap:1rem;position:relative;overflow:hidden;transition:background var(--dur-fast);}
+.step:hover{background:rgba(232,245,0,.04);}
+.step-num{
+  font-family:var(--font-display);font-size:clamp(3rem,7vw,5.5rem);line-height:1;
+  color:transparent;-webkit-text-stroke:1.5px var(--volt);
+}
+.step h3{font-size:clamp(1.5rem,2.6vw,2.2rem);}
+.step p{color:var(--ink-70);}
+
+/* PROGRAMMA'S | 5 kaarten */
+.programs{display:grid;grid-template-columns:repeat(6,1fr);gap:1rem;margin-top:var(--space-4);}
+.program{
+  position:relative;overflow:hidden;border:1px solid var(--line);
+  aspect-ratio:3/4;display:flex;align-items:flex-end;
+  grid-column:span 2;
+}
+.program:nth-child(4),.program:nth-child(5){grid-column:span 3;aspect-ratio:16/10;}
+@media (max-width:950px){
+  .programs{grid-template-columns:1fr 1fr;}
+  .program,.program:nth-child(4),.program:nth-child(5){grid-column:span 1;aspect-ratio:4/5;}
+  .program:nth-child(5){grid-column:span 2;aspect-ratio:16/9;}
+}
+@media (max-width:560px){
+  .programs{grid-template-columns:1fr;}
+  .program,.program:nth-child(4),.program:nth-child(5){grid-column:span 1;aspect-ratio:4/5;}
+}
+.program img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  filter:grayscale(1) contrast(1.12) brightness(.6);
+  transform:scale(1.06);
+  transition:transform 1s var(--ease),filter 1s var(--ease);
+}
+.program:hover img{transform:scale(1);filter:grayscale(.15) brightness(.75);}
+.program::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.88));}
+.program-body{position:relative;z-index:2;padding:1.6rem;display:flex;flex-direction:column;gap:.5rem;width:100%;}
+.program h3{font-size:clamp(1.5rem,2.6vw,2.2rem);}
+.program p{color:var(--ink-70);font-size:.9rem;max-width:40ch;}
+.program-link{
+  display:inline-flex;align-items:center;gap:.7rem;margin-top:.5rem;
+  font-weight:700;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--volt);
+}
+.program-link .arrow{transition:transform var(--dur-fast) var(--ease);display:inline-block;}
+.program:hover .program-link .arrow{transform:translateX(8px);}
+
+/* INSTAGRAM */
+.insta-head{display:flex;align-items:baseline;justify-content:space-between;gap:var(--space-3);flex-wrap:wrap;}
+.insta-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:.6rem;margin-top:var(--space-4);}
+@media (max-width:950px){.insta-grid{grid-template-columns:repeat(3,1fr);}}
+.insta-grid a{position:relative;overflow:hidden;aspect-ratio:1/1;display:block;}
+.insta-grid img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.1) brightness(.75);transition:filter .5s var(--ease),transform .8s var(--ease);}
+.insta-grid a:hover img{filter:grayscale(0) brightness(.95);transform:scale(1.06);}
+.insta-grid a::after{
+  content:"🥊";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-size:1.6rem;background:rgba(232,245,0,.85);opacity:0;transition:opacity var(--dur-fast);
+}
+.insta-grid a:hover::after{opacity:1;}
+
+/* ROOSTER BANNER */
+.rooster-banner{
+  position:relative;overflow:hidden;
+  padding:var(--space-5) var(--gutter);
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  display:flex;align-items:center;justify-content:space-between;gap:var(--space-3);flex-wrap:wrap;
+}
+.rooster-banner-bg{
+  position:absolute;inset:0;
+  background:url("https://images.unsplash.com/photo-1533560904424-a0c61dc306fc?w=1800&q=60&fm=jpg") center/cover;
+  filter:grayscale(1) brightness(.22) contrast(1.2);
+}
+.rooster-banner > *:not(.rooster-banner-bg){position:relative;z-index:1;}
+.rooster-banner h2{font-size:clamp(2.2rem,6vw,5rem);max-width:14ch;}
+.rooster-banner h2 .volt{color:var(--volt);}
+.rooster-banner .actions{display:flex;gap:1rem;flex-wrap:wrap;}
+
+/* MINI ROOSTER */
+.mini-rooster{margin-top:var(--space-4);border-top:1px solid var(--line);}
+.mini-row{
+  display:grid;grid-template-columns:120px 1fr auto;gap:1.5rem;align-items:center;
+  padding:1.2rem 0;border-bottom:1px solid var(--line);
+  transition:padding-left var(--dur-fast) var(--ease),background var(--dur-fast);
+}
+.mini-row:hover{padding-left:1rem;background:rgba(232,245,0,.04);}
+.mini-day{font-family:var(--font-display);font-size:1.15rem;color:var(--volt);text-transform:uppercase;}
+.mini-lessen{color:var(--ink-70);font-size:.95rem;}
+.mini-lessen strong{color:var(--white);}
+.mini-count{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-40);white-space:nowrap;}
+@media (max-width:700px){.mini-row{grid-template-columns:90px 1fr;}.mini-count{display:none;}}
+
+/* REVIEWS */
+.reviews-meta{display:flex;align-items:center;gap:1.6rem;flex-wrap:wrap;margin-top:var(--space-3);}
+.reviews-score{font-family:var(--font-display);font-size:clamp(2.4rem,5vw,4rem);color:var(--volt);}
+.reviews-stars{color:var(--volt);font-size:1.3rem;letter-spacing:.2em;}
+.reviews-meta p{color:var(--ink-40);font-size:.85rem;}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:var(--space-3);}
+@media (max-width:950px){.reviews-grid{grid-template-columns:1fr;}}
+.review{
+  border:1px solid var(--line);border-top:4px solid var(--volt);
+  padding:clamp(1.6rem,3vw,2.4rem);
+  display:flex;flex-direction:column;gap:1rem;
+  transition:transform .5s var(--ease),border-color var(--dur-fast);
+}
+.review:hover{transform:translateY(-6px);border-color:var(--volt);}
+.review .stars{color:var(--volt);letter-spacing:.15em;}
+.review p{color:var(--ink-70);font-size:.95rem;}
+.review footer{display:flex;align-items:center;gap:.9rem;margin-top:auto;}
+.review .avatar{
+  width:42px;height:42px;border-radius:50%;background:var(--volt);color:var(--black);
+  font-family:var(--font-display);display:flex;align-items:center;justify-content:center;font-size:1.1rem;
+}
+.review .who strong{display:block;font-size:.9rem;}
+.review .who span{font-size:.72rem;color:var(--ink-40);letter-spacing:.1em;text-transform:uppercase;}
+
+/* INTAKE CTA */
+.intake{
+  position:relative;overflow:hidden;
+  padding:var(--space-5) var(--gutter);
+  text-align:center;border-top:1px solid var(--line);
+}
+.intake-bg{
+  position:absolute;inset:0;
+  background:url("https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=1600&q=60&fm=jpg") center/cover;
+  filter:grayscale(1) brightness(.2) contrast(1.2);
+}
+.intake > *:not(.intake-bg){position:relative;z-index:1;}
+.intake h2{font-size:clamp(2.6rem,8vw,7rem);max-width:16ch;margin:1.2rem auto 0;}
+.intake h2 .volt{color:var(--volt);}
+.intake p{color:var(--ink-70);max-width:46ch;margin:1.6rem auto 0;}
+.intake-form{
+  margin:2.5rem auto 0;max-width:560px;
+  display:flex;gap:.7rem;flex-wrap:wrap;justify-content:center;
+}
+.intake-form input{
+  flex:1;min-width:220px;
+  background:rgba(0,0,0,.7);border:1px solid var(--line);
+  color:var(--white);font-family:var(--font-body);font-size:1rem;
+  padding:1.1rem 1.2rem;outline:none;border-radius:0;appearance:none;
+  transition:border-color var(--dur-fast);
+}
+.intake-form input:focus{border-color:var(--volt);}
+.intake-note{font-size:.72rem;color:var(--ink-40);margin-top:1rem;}
+.intake .form-success{display:none;margin-top:2rem;}
+.intake .form-success.is-visible{display:block;animation:fadeUp .5s var(--ease);}
+.intake .form-success .big{font-family:var(--font-display);font-size:2rem;color:var(--volt);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+/* FOOTER */
+.footer{border-top:1px solid var(--line);padding:var(--space-4) var(--gutter) var(--space-3);}
+.footer-top{display:flex;justify-content:space-between;gap:var(--space-3);flex-wrap:wrap;margin-bottom:var(--space-4);}
+.footer-brand{font-family:var(--font-display);font-size:clamp(2.2rem,6vw,4.5rem);line-height:.95;text-transform:uppercase;}
+.footer-brand .volt{color:var(--volt);}
+.footer-cols{display:flex;gap:clamp(2rem,6vw,6rem);flex-wrap:wrap;}
+.footer-col h4{font-size:.72rem;letter-spacing:.25em;text-transform:uppercase;color:var(--ink-40);margin-bottom:1rem;font-weight:700;}
+.footer-col a,.footer-col p{display:block;color:var(--ink-70);margin-bottom:.5rem;font-size:.92rem;}
+.footer-col a:hover{color:var(--volt);}
+.footer-bottom{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:var(--space-3);font-size:.75rem;color:var(--ink-40);}
+
+/* WHATSAPP FLOAT */
+.wa-float{
+  position:fixed;right:1.4rem;bottom:1.4rem;z-index:200;
+  width:60px;height:60px;border-radius:50%;
+  background:var(--volt);color:var(--black);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 30px rgba(232,245,0,.25);
+  transition:transform var(--dur-fast) var(--ease);
+}
+.wa-float:hover{transform:scale(1.1);}
+.wa-float svg{width:30px;height:30px;fill:var(--black);}
+.wa-float .tip{
+  position:absolute;right:72px;top:50%;transform:translateY(-50%);
+  background:var(--white);color:var(--black);
+  font-size:.75rem;font-weight:700;white-space:nowrap;
+  padding:.55rem .9rem;opacity:0;pointer-events:none;
+  transition:opacity var(--dur-fast);
+}
+.wa-float:hover .tip{opacity:1;}
+
+.reveal{opacity:0;transform:translateY(46px);}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important;}
+  .reveal{opacity:1;transform:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" aria-hidden="true"></div>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <a href="#top" class="nav-logo"><span class="bolt"></span>STRIKE<span style="color:var(--volt)">CLUB</span></a>
+  <nav class="nav-links">
+    <a href="#over">Over ons</a>
+    <a href="#werkwijze">Werkwijze</a>
+    <a href="#trainingen">Trainingen</a>
+    <a href="#rooster">Lesrooster</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#intake">Contact</a>
+  </nav>
+  <a href="#intake" class="btn">Gratis proefles</a>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <h1 class="hero-quote reveal">"Train hard.<br><span class="volt">Stay sharp."</span></h1>
+    <p class="hero-sub reveal">Kickboksen en performance training in onze privé gym. Persoonlijke aandacht, kleine groepen, meetbaar resultaat.</p>
+    <div class="hero-cta reveal">
+      <a href="#intake" class="btn btn--big">Schrijf je in voor een gratis proefles</a>
+      <a href="#trainingen" class="btn btn--ghost btn--big">Bekijk trainingen</a>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item">Bereik jouw doelen</span><span class="marquee-item">Start vandaag</span><span class="marquee-item">Kickboxing</span><span class="marquee-item">Personal Training</span><span class="marquee-item">Small Group</span>
+    <span class="marquee-item">Bereik jouw doelen</span><span class="marquee-item">Start vandaag</span><span class="marquee-item">Kickboxing</span><span class="marquee-item">Personal Training</span><span class="marquee-item">Small Group</span>
+  </div>
+</div>
+
+<!-- OVER ONS -->
+<section class="section" id="over">
+  <div class="over">
+    <div class="over-media reveal">
+      <img src="https://images.unsplash.com/photo-1533560904424-a0c61dc306fc?w=1200&q=70&fm=jpg" alt="Kleine trainingsgroep in de privé gym van Strike Performance Club">
+      <span class="stamp">Privé gym · max 8 p/groep</span>
+    </div>
+    <div class="over-copy">
+      <div class="section-tag reveal">Over ons</div>
+      <h2 class="section-title reveal">Kickboksen in onze <span class="volt">privé gym</span></h2>
+      <p class="reveal">Genoeg van drukke sportscholen waar persoonlijke aandacht ontbreekt? <strong>Dan is dit iets voor jou.</strong></p>
+      <p class="reveal">Bij Strike Performance Club train je één-op-één met een personal trainer of in kleine groepen van maximaal 8 personen. Zo werken we gericht aan jouw doelen | en ga je sneller vooruit.</p>
+      <p class="reveal">Betere techniek en balans, sterkere spieren, meer zelfvertrouwen, gewichtsverlies of gewoon een ijzersterke conditie: wij passen tijdstip, intensiteit en niveau aan op wat jij nodig hebt.</p>
+      <div class="over-usps">
+        <div class="over-usp reveal">Persoonlijke aandacht, elke training</div>
+        <div class="over-usp reveal">Groepen van maximaal 8 personen</div>
+        <div class="over-usp reveal">Trainen op tijden die jou uitkomen</div>
+      </div>
+      <a href="#intake" class="btn btn--big reveal">Boek je eerste training</a>
+    </div>
+  </div>
+</section>
+
+<!-- WERKWIJZE -->
+<section class="section" id="werkwijze" style="padding-top:0">
+  <div class="section-tag reveal">Onze werkwijze</div>
+  <h2 class="section-title reveal">De weg naar <span class="volt">jouw doel</span></h2>
+
+  <div class="steps">
+    <div class="step reveal">
+      <div class="step-num">01</div>
+      <h3>Intake</h3>
+      <p>We starten met een gratis intakegesprek. Doelen, niveau, blessures en agenda | daaruit rolt jouw persoonlijke plan op maat.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">02</div>
+      <h3>Training</h3>
+      <p>Professionele begeleiding op jouw tempo. Elke sessie staat er een coach naast je die techniek corrigeert en je net iets verder pusht dan je zelf zou gaan.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">03</div>
+      <h3>Resultaat</h3>
+      <p>Merkbare vooruitgang, zwart op wit. We meten, evalueren en vieren je successen | en stellen dan het volgende doel.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TRAININGEN -->
+<section class="section" id="trainingen" style="padding-top:0">
+  <div class="section-tag reveal">Ons aanbod</div>
+  <h2 class="section-title reveal">Trainings<span class="volt">programma's</span></h2>
+
+  <div class="programs">
+    <a href="#intake" class="program reveal">
+      <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=1000&q=70&fm=jpg" alt="Personal training met barbell" loading="lazy">
+      <div class="program-body">
+        <h3>Personal Training</h3>
+        <p>Eén-op-één met je eigen trainer, volledig gebouwd rond jouw doelen.</p>
+        <span class="program-link">Meer info <span class="arrow">→</span></span>
+      </div>
+    </a>
+    <a href="#intake" class="program reveal">
+      <img src="https://images.unsplash.com/photo-1533560904424-a0c61dc306fc?w=1000&q=70&fm=jpg" alt="Small group training" loading="lazy">
+      <div class="program-body">
+        <h3>Small Group</h3>
+        <p>Trainen in groepen van 6 tot 8. Techniek, explosiviteit en kracht.</p>
+        <span class="program-link">Meer info <span class="arrow">→</span></span>
+      </div>
+    </a>
+    <a href="#intake" class="program reveal">
+      <img src="https://images.unsplash.com/photo-1554284126-aa88f22d8b74?w=1000&q=70&fm=jpg" alt="Bedrijfstraining met barbells" loading="lazy">
+      <div class="program-body">
+        <h3>Bedrijfstraining</h3>
+        <p>Teambuilding en gezondheid voor je hele team, op maat gemaakt.</p>
+        <span class="program-link">Meer info <span class="arrow">→</span></span>
+      </div>
+    </a>
+    <a href="#intake" class="program reveal">
+      <img src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=1200&q=70&fm=jpg" alt="Kickbokshandschoenen op de mat" loading="lazy">
+      <div class="program-body">
+        <h3>Kids Kickboxing</h3>
+        <p>Kinderen worden sterker, zelfverzekerder en weerbaarder. Conditie, kracht en techniek in elke les.</p>
+        <span class="program-link">Meer info <span class="arrow">→</span></span>
+      </div>
+    </a>
+    <a href="#intake" class="program reveal">
+      <img src="https://images.unsplash.com/photo-1574680096145-d05b474e2155?w=1200&q=70&fm=jpg" alt="Vrouw traint met barbell" loading="lazy">
+      <div class="program-body">
+        <h3>Ladies Only</h3>
+        <p>Kickbokslessen voor vrouwen | techniek leren én je hele lichaam trainen. Conditie, kracht of gewoon lekker bewegen.</p>
+        <span class="program-link">Meer info <span class="arrow">→</span></span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- INSTAGRAM -->
+<section class="section" style="padding-top:0">
+  <div class="insta-head">
+    <div>
+      <div class="section-tag reveal">@strikeperformance.club</div>
+      <h2 class="section-title reveal">Kijk mee in <span class="volt">onze gym</span></h2>
+    </div>
+    <a href="#" class="btn btn--ghost reveal">Volg ons op Instagram</a>
+  </div>
+  <div class="insta-grid">
+    <a href="#" class="reveal" aria-label="Instagram post"><img src="https://images.unsplash.com/photo-1591117207239-788bf8de6c3b?w=600&q=65&fm=jpg" alt="Sparring moment" loading="lazy"></a>
+    <a href="#" class="reveal" aria-label="Instagram post"><img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?w=600&q=65&fm=jpg" alt="Battle ropes training" loading="lazy"></a>
+    <a href="#" class="reveal" aria-label="Instagram post"><img src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?w=600&q=65&fm=jpg" alt="Barbell training" loading="lazy"></a>
+    <a href="#" class="reveal" aria-label="Instagram post"><img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=600&q=65&fm=jpg" alt="Run club bij zonsopgang" loading="lazy"></a>
+    <a href="#" class="reveal" aria-label="Instagram post"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=65&fm=jpg" alt="Push-ups tijdens les" loading="lazy"></a>
+    <a href="#" class="reveal" aria-label="Instagram post"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=65&fm=jpg" alt="De trainingsvloer" loading="lazy"></a>
+  </div>
+</section>
+
+<!-- ROOSTER -->
+<section class="rooster-banner" id="rooster">
+  <div class="rooster-banner-bg" aria-hidden="true"></div>
+  <div>
+    <div class="section-tag reveal">Lesrooster</div>
+    <h2 class="reveal" style="margin-top:1rem">Bekijk ons actuele <span class="volt">lesrooster</span></h2>
+  </div>
+  <div class="actions reveal">
+    <a href="#weekrooster" class="btn btn--big">Open het weekrooster</a>
+    <a href="#" class="btn btn--ghost btn--big">Inloggen Strike-app</a>
+  </div>
+</section>
+
+<section class="section" id="weekrooster">
+  <div class="mini-rooster reveal">
+    <div class="mini-row"><span class="mini-day">Ma</span><span class="mini-lessen"><strong>07:00</strong> Early Strike · <strong>17:30</strong> Kickboxing Fundamentals · <strong>18:30</strong> Kickboxing Advanced · <strong>19:30</strong> Strength</span><span class="mini-count">5 lessen</span></div>
+    <div class="mini-row"><span class="mini-day">Di</span><span class="mini-lessen"><strong>07:00</strong> Engine · <strong>17:30</strong> Small Group · <strong>18:30</strong> Kickboxing All Levels · <strong>19:30</strong> Core & Mobility</span><span class="mini-count">5 lessen</span></div>
+    <div class="mini-row"><span class="mini-day">Wo</span><span class="mini-lessen"><strong>15:30</strong> Kids Kickboxing · <strong>17:30</strong> Fundamentals · <strong>18:30</strong> Strength · <strong>19:30</strong> Fight Prep</span><span class="mini-count">5 lessen</span></div>
+    <div class="mini-row"><span class="mini-day">Do</span><span class="mini-lessen"><strong>07:00</strong> Engine · <strong>17:30</strong> Ladies Only · <strong>18:30</strong> Kickboxing Advanced · <strong>19:30</strong> Conditioning</span><span class="mini-count">5 lessen</span></div>
+    <div class="mini-row"><span class="mini-day">Vr</span><span class="mini-lessen"><strong>07:00</strong> Early Strike · <strong>15:30</strong> Kids Kickboxing · <strong>18:30</strong> Friday Fight Club</span><span class="mini-count">4 lessen</span></div>
+    <div class="mini-row"><span class="mini-day">Za</span><span class="mini-lessen"><strong>09:00</strong> Small Group · <strong>10:30</strong> Kickboxing All Levels · <strong>12:00</strong> Open Gym</span><span class="mini-count">3 lessen</span></div>
+    <div class="mini-row"><span class="mini-day">Zo</span><span class="mini-lessen"><strong>10:00</strong> Run Club · <strong>11:00</strong> Recovery & Mobility</span><span class="mini-count">2 lessen</span></div>
+  </div>
+  <p class="reveal" style="margin-top:1.5rem;color:var(--ink-40);font-size:.85rem">Personal training plannen we buiten deze tijden, op momenten die jou uitkomen. Reserveren gaat via de Strike-app.</p>
+</section>
+
+<!-- REVIEWS -->
+<section class="section" id="reviews" style="padding-top:0">
+  <div class="section-tag reveal">Klantreviews</div>
+  <h2 class="section-title reveal">Ervaringen van <span class="volt">onze leden</span></h2>
+
+  <div class="reviews-meta reveal">
+    <span class="reviews-score">Uitstekend</span>
+    <div>
+      <div class="reviews-stars">★★★★★</div>
+      <p>4,9 / 5 · gebaseerd op 21 Google-recensies</p>
+    </div>
+  </div>
+
+  <div class="reviews-grid">
+    <article class="review reveal">
+      <div class="stars">★★★★★</div>
+      <p>"Drie jaar geleden begonnen met personal training en inmiddels sta ik elke week bij de bokszaktraining. Doordat de groepen klein zijn is er echt aandacht voor techniek. De coaches weten precies waar je grens ligt | en duwen je er net overheen."</p>
+      <footer>
+        <div class="avatar">M</div>
+        <div class="who"><strong>Marieke</strong><span>Lid sinds 2023</span></div>
+      </footer>
+    </article>
+    <article class="review reveal">
+      <div class="stars">★★★★★</div>
+      <p>"Coaches die luisteren en oog hebben voor detail, ook voor het mentale stuk. Ze zetten zich volledig in om een betere versie van jezelf te maken. Ik raad Strike iedereen aan."</p>
+      <footer>
+        <div class="avatar">N</div>
+        <div class="who"><strong>Nunzia</strong><span>Small group</span></div>
+      </footer>
+    </article>
+    <article class="review reveal">
+      <div class="stars">★★★★★</div>
+      <p>"Techniek én het lesgeven zelf beheersen ze keurig. Als ik niet meer kan, helpen ze me doorzetten. Flink vooruitgegaan met de conditietrainingen | en het inplannen via de app werkt top."</p>
+      <footer>
+        <div class="avatar">C</div>
+        <div class="who"><strong>Choukri</strong><span>Kickboxing</span></div>
+      </footer>
+    </article>
+  </div>
+</section>
+
+<!-- INTAKE CTA -->
+<section class="intake" id="intake">
+  <div class="intake-bg" aria-hidden="true"></div>
+  <div class="section-tag reveal" style="justify-content:center">Klaar voor verandering?</div>
+  <h2 class="reveal">Plan een <span class="volt">gratis</span> intakegesprek</h2>
+  <p class="reveal">Vertel ons je doel, wij plannen binnen 24 uur je intake én je eerste gratis proefles in. Geen verplichtingen, geen kleine lettertjes.</p>
+  <form class="intake-form reveal" id="intakeForm" novalidate>
+    <input type="text" id="iNaam" placeholder="Je naam" required autocomplete="name">
+    <input type="email" id="iEmail" placeholder="Je e-mailadres" required autocomplete="email">
+    <button type="submit" class="btn btn--big">Plan mijn intake →</button>
+  </form>
+  <p class="intake-note reveal">Liever direct contact? Bel <a href="tel:+31201234567" style="color:var(--volt)">+31 20 123 45 67</a> of stuur een WhatsApp.</p>
+  <div class="form-success" id="intakeSuccess">
+    <div class="big">Je staat op de lijst 🥊</div>
+    <p style="color:var(--ink-70)">Check je inbox | we bellen of mailen je binnen 24 uur.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-brand">Strike<br>Performance<br><span class="volt">Club</span></div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4>Menu</h4>
+        <a href="#over">Over ons</a>
+        <a href="#werkwijze">Werkwijze</a>
+        <a href="#trainingen">Trainingen</a>
+        <a href="#rooster">Lesrooster</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#intake">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Bezoek</h4>
+        <p>Performancekade 12<br>1012 AB Amsterdam</p>
+        <p>Ma t/m vr 06:30 | 22:00<br>Za & zo 08:30 | 17:00</p>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:info@strikeperformance.club">info@strikeperformance.club</a>
+        <a href="tel:+31201234567">+31 20 123 45 67</a>
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Strike Performance Club. Alle rechten voorbehouden.</span>
+    <span>Train hard. Stay sharp.</span>
+  </div>
+</footer>
+
+<!-- WHATSAPP -->
+<a class="wa-float" href="https://wa.me/31612345678?text=Hoi!%20Ik%20heb%20een%20vraag%20over%20de%20lessen%20bij%20Strike." target="_blank" rel="noopener" aria-label="Stuur ons een WhatsApp">
+  <span class="tip">Vragen? Stuur een WhatsApp!</span>
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.26 8.26 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.55-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.78.97-.15.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.16-.48-.29z"/></svg>
+</a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+<script>
+(function(){
+"use strict";
+var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+var isMobile = window.matchMedia("(max-width: 900px)").matches || ("ontouchstart" in window);
+gsap.registerPlugin(ScrollTrigger);
+
+var lenis = null;
+if (!reduced && typeof Lenis !== "undefined") {
+  lenis = new Lenis({ lerp: 0.1, smoothWheel: true });
+  lenis.on("scroll", ScrollTrigger.update);
+  gsap.ticker.add(function(t){ lenis.raf(t * 1000); });
+  gsap.ticker.lagSmoothing(0);
+}
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener("click", function(e){
+    var id = a.getAttribute("href");
+    if (id.length < 2) return;
+    var el = document.querySelector(id);
+    if (!el) return;
+    e.preventDefault();
+    if (lenis) lenis.scrollTo(el, { offset: -70 });
+    else el.scrollIntoView({ behavior: "smooth" });
+  });
+});
+
+var nav = document.getElementById("nav");
+ScrollTrigger.create({
+  start: 80, end: "max",
+  onUpdate: function(self){ nav.classList.toggle("is-scrolled", self.scroll() > 80); }
+});
+
+if (!reduced) {
+  document.querySelectorAll(".reveal").forEach(function(el){
+    gsap.to(el, {
+      opacity: 1, y: 0, duration: .9, ease: "power3.out",
+      scrollTrigger: { trigger: el, start: "top 88%", once: true }
+    });
+  });
+  gsap.to(".hero-bg", {
+    yPercent: 14, ease: "none",
+    scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true }
+  });
+} else {
+  document.querySelectorAll(".reveal").forEach(function(el){ el.style.opacity = 1; el.style.transform = "none"; });
+}
+
+/* Intake form */
+var form = document.getElementById("intakeForm");
+form.addEventListener("submit", function(e){
+  e.preventDefault();
+  var naam = document.getElementById("iNaam");
+  var email = document.getElementById("iEmail");
+  var invalid = false;
+  [naam, email].forEach(function(f){
+    if (!f.value.trim() || f.validity.typeMismatch) {
+      invalid = true;
+      f.style.borderColor = "#E8F500";
+      gsap.fromTo(f, { x: -6 }, { x: 0, duration: .4, ease: "elastic.out(1,.35)" });
+    }
+  });
+  if (invalid) return;
+  form.style.display = "none";
+  document.querySelector(".intake-note").style.display = "none";
+  document.getElementById("intakeSuccess").classList.add("is-visible");
+});
+
+/* Cursor */
+if (!isMobile && !reduced) {
+  var cursor = document.querySelector(".cursor");
+  var cx = -100, cy = -100, tx = -100, ty = -100;
+  window.addEventListener("mousemove", function(e){
+    tx = e.clientX; ty = e.clientY;
+    cursor.style.opacity = 1;
+  }, { passive: true });
+  gsap.ticker.add(function(){
+    cx += (tx - cx) * .2; cy += (ty - cy) * .2;
+    cursor.style.transform = "translate(" + cx + "px," + cy + "px) translate(-50%,-50%)";
+  });
+  document.querySelectorAll("a, button").forEach(function(el){
+    el.addEventListener("mouseenter", function(){ cursor.classList.add("is-active"); });
+    el.addEventListener("mouseleave", function(){ cursor.classList.remove("is-active"); });
+  });
+}
+})();
+</script>
+</body>
+</html>
